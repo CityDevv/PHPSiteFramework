@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Rewrite /item/1/ to /item/?pID=1
+RewriteRule ^item/([0-9]+)/?$ item/?pID=$1 [L]
